@@ -1,0 +1,21 @@
+{
+  "name": "bookmarklets",
+  "version": "1.0.0",
+  "description": "",
+  "main": "bookmark.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "gulp book --file"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-clipboard": "^0.1.3",
+    "gulp-footer": "^2.0.2",
+    "gulp-header": "^2.0.9",
+    "gulp-terser": "^1.2.0"
+  }
+}
